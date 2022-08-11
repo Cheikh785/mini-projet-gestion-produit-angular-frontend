@@ -12,18 +12,27 @@ body {
     width: 100%;
     background-image: linear-gradient(to bottom right, #d32c2ca2, #ef8616a2, #e4cc1843);
 }
-.title {
+.head {
+    background-image: linear-gradient(to bottom right, #006c8aab, #1fa0c37d, #58c7c75e);
+    padding: 10px 0px 20px;
+	font-family: 'Montserrat', sans-serif;
+}
+.head .logo img {
+    margin-left: 14%;
+    margin-top: 7%;
+}
+.head img {
+    padding-left: 2%;
+}
+.head h2 {
     font-weight: 500;
     text-align: center;
-    /* background-color: #16a085; */
-    background-image: linear-gradient(to bottom right, #006c8aab, #1fa0c37d, #58c7c75e);
     color: #fff;
-    margin-top: 0%;
-    padding: 10px 0px 10px;
 	font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.4rem;
     font-size: 3rem;
-    /* width: 70%; */
+    margin-left: -20%;
+    margin-top: 1%; 
 }
 .ajouter {
     display: flex;
@@ -136,9 +145,13 @@ body {
 
 
 @media only screen and (max-width: 768px) {
-    .title {
+    .head h2 {
         margin-top: 5%;
-        font-size: 1.3rem;
+        margin-left: 0;
+        font-size: 1.6rem;
+    }
+    .head img {
+        padding-left: 12%;
     }
     .content {
         padding-left: 15%;
