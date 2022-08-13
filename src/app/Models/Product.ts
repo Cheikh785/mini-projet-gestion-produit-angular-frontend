@@ -1,14 +1,19 @@
 export class Product {
-    name        :   String;
-    price       :   Number;
-    quantity    :   Number;
-    image       :   String;
+    public name        :   String   =   "";
+    public price       :   Number   =   0;
+    public quantity    :   Number   =   0;
+    public imagePath   :   String   =   "";
 
-    constructor($_name: String, $_price: Number, $_quantity: Number, $_image: String) {
-        this.name       =   $_name;
-        this.price      =   $_price;
-        this.quantity   =   $_quantity;
-        this.image      =   $_image;
+    constructor(
+        public $_name       ?:  String, 
+        public $_price      ?:  Number, 
+        public $_quantity   ?:  Number, 
+        public $_imagePath      ?:  String
+    ) {
+        if ($_name)         this.name           =   $_name;
+        if($_price)         this.price          =   $_price;
+        if($_quantity)      this.quantity       =   $_quantity;
+        if($_imagePath)     this.imagePath      =   $_imagePath;
     }
 
     public getName(): String {
@@ -23,8 +28,8 @@ export class Product {
         return this.quantity;
     }
 
-    public getImage(): String {
-        return this.image;
+    public getImagePath(): String {
+        return this.imagePath;
     }
 
     public setName($_name: String): void {
@@ -39,7 +44,7 @@ export class Product {
         this.quantity = $_quantity;
     }
 
-    public setImage($_image: String): void {
-        this.image = $_image;
+    public setImagePath($_imagePath: String): void {
+        this.imagePath = $_imagePath;
     }
 }

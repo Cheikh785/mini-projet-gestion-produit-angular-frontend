@@ -3,7 +3,12 @@ export class User {
     public lastname     :   String  =   "";
     public address      :   String  =   "";
 
-    constructor(public $_firstname?: String, public $_lastname?: String, public $_address?: String, public $_user?: User) {
+    constructor(
+        public $_firstname  ?: String, 
+        public $_lastname   ?: String, 
+        public $_address    ?: String, 
+        public $_user       ?: User
+    ) {
         if($_firstname)     this.firstname  =   $_firstname;
         if($_lastname)      this.lastname   =   $_lastname;
         if($_address)       this.address    =   $_address;

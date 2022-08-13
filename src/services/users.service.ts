@@ -12,23 +12,23 @@ export class UsersService {
 
 	constructor(private http: HttpClient) { }
 
-	getAllUsers(): Observable<User[]> {
+	public getAllUsers(): Observable<User[]> {
 		return this.http.get<User[]>(this.apiUrl);
 	}
 
-	getUserById(id: Number): Observable<User> {
+	public getUserById(id: Number): Observable<User> {
 		return this.http.get<User>(this.apiUrl + id);
 	}
 
-	registerUser(user: User): Observable<User> {
+	public registerUser(user: User): Observable<User> {
 		return this.http.post<User>(this.apiUrl, user);
 	}
 
-	updateUser(id: Number, user: User): Observable<User> {
+	public updateUser(id: Number, user: User): Observable<User> {
 		return this.http.patch<User>(this.apiUrl + id, user);
 	}
 
-	removeUser(id: Number) {
+	public removeUser(id: Number) {
 		return this.http.delete<User>(this.apiUrl + id);
 	}
 

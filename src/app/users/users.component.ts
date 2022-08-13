@@ -11,18 +11,18 @@ import { User } from '../Models/User';
 })
 export class UsersComponent implements OnInit {
 
-	listUsers: any = [];
-	user: User = new User("", "", "");
-	updatedId ?: Number;
-	updatedUser = new User();
-	addUserForm!: FormGroup;
-	updateUserForm!: FormGroup;
-	firstname: String = "";
+	listUsers		:	any 		= [];
+	user			: 	User 		= new User("", "", "");
+	updatedId 		?: 	Number;
+	updatedUser		: 	User 		= new User();
+	addUserForm		!: 	FormGroup;
+	updateUserForm	!: 	FormGroup;
+	firstname		: 	String 		= "";
 
 	constructor(
-		private userService: UsersService, 
-		private formBuilder: FormBuilder, 
-		private router: Router
+		private userService	:	UsersService, 
+		private formBuilder	: 	FormBuilder, 
+		private router		: 	Router
 	) { }
 
 	public async ngOnInit(): Promise<void> {
