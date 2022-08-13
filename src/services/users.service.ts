@@ -1,19 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/Models/user.model';
+import { User } from 'src/app/Models/User';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class UsersService {
 
-	apiUrl = "http://localhost:3000/users";
+	apiUrl = "http://127.0.0.1:3000/users/";
 
 	constructor(private http: HttpClient) { }
 
-	getAllUsers() {
-		return this.http.get<User>(this.apiUrl);
+	getAllUsers(): Observable<User[]> {
+		return this.http.get<User[]>(this.apiUrl);
+	}
+
+	getUserById(id: Number): Observable<User> {
+		return this.http.get<User>(this.apiUrl + id);
+	}
+
+	registerUser(user: User): Observable<User> {
+		return this.http.post<User>(this.apiUrl, user);
+	}
+
+	updateUser(id: Number, user: User): Observable<User> {
+		return this.http.patch<User>(this.apiUrl + id, user);
+	}
+
+	removeUser(id: Number) {
+		return this.http.delete<User>(this.apiUrl + id);
 	}
 
 }

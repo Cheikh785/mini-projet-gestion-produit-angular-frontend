@@ -6,16 +6,17 @@ html {
 	font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
-    min-height: 100vh;
 }
 body {
-    width: 100%;
+    min-width: 100%;
     background-image: linear-gradient(to bottom right, #d32c2ca2, #ef8616a2, #e4cc1843);
+    min-height: 100vh;
 }
 .head {
     background-image: linear-gradient(to bottom right, #006c8aab, #1fa0c37d, #58c7c75e);
     padding: 10px 0px 20px;
 	font-family: 'Montserrat', sans-serif;
+    width: 100.5%;
 }
 .head .logo img {
     margin-left: 14%;
@@ -87,10 +88,10 @@ body {
     cursor: pointer;
 }
 .card img {
-    width: 180px;
+    width: 200px;
     height: 180px;
     margin-top: 5%;
-    margin-left: 15%;
+    margin-left: 10%;
     /* margin-right: 5%; */
 }
 .bi-heart {
@@ -145,6 +146,12 @@ body {
 
 
 @media only screen and (max-width: 768px) {
+    .head {
+        background-image: linear-gradient(to bottom right, #006c8aab, #1fa0c37d, #58c7c75e);
+        padding: 10px 0px 20px;
+        font-family: 'Montserrat', sans-serif;
+        width: 103%;
+    }
     .head h2 {
         margin-top: 5%;
         margin-left: 0;
