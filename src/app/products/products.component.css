@@ -42,7 +42,7 @@ body {
 }
 
 .action svg {
-    margin-left: 20%;
+    margin-left: 13%;
 }
 #addUserModal .modal-body {
     padding-left: 20%;
@@ -127,14 +127,14 @@ body {
 }
 .action .modifier {
     color: blue;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     
 }
 .action .modifier svg:hover {
     color: rgb(0, 0, 207);
 }
 .action .supprimer {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: red;
 }
 .action .supprimer svg:hover {
@@ -147,6 +147,9 @@ body {
 
 
 @media only screen and (max-width: 768px) {
+    body {
+        padding-bottom: 15%;
+    }
     .head {
         background-image: linear-gradient(to bottom right, #006c8aab, #1fa0c37d, #58c7c75e);
         padding: 10px 0px 20px;
@@ -171,7 +174,7 @@ body {
     .ajouter-produit {
         display: flex;
         justify-content: center;
-        padding-top: 1%;
+        padding-top: 3%;
     }
     .rechercher {
         margin-top: 3%;
