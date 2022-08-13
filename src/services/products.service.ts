@@ -24,8 +24,8 @@ export class ProductsService {
 		return this.http.post<Product>(this.apiUrl, product);
 	}
 
-	public updateProduct(id: Number, product: Product): Observable<Product> {
-		return this.http.patch<Product>(this.apiUrl + id, product);
+	public updateProduct(id: Number, product: any): Observable<any> {
+		return this.http.patch<any>(this.apiUrl + id, product);
 	}
 
 	public removeProduct(id: Number) {

@@ -12,11 +12,11 @@ import { User } from '../Models/User';
 export class UsersComponent implements OnInit {
 
 	listUsers		:	any 		= [];
-	user			: 	User 		= new User("", "", "");
-	updatedId 		?: 	Number;
+	user			: 	User 		= new User();
+	updatedId 	   ?: 	Number;
 	updatedUser		: 	User 		= new User();
-	addUserForm		!: 	FormGroup;
-	updateUserForm	!: 	FormGroup;
+	addUserForm	   !: 	FormGroup;
+	updateUserForm !: 	FormGroup;
 	firstname		: 	String 		= "";
 
 	constructor(
@@ -25,14 +25,13 @@ export class UsersComponent implements OnInit {
 		private router		: 	Router
 	) { }
 
-	public async ngOnInit(): Promise<void> {
+	public ngOnInit() {
 		this.loadAllUsers();
 		this.initAddForm();
-		this.initEditForm();
 	}
 
-	public async loadAllUsers() {
-		await this.userService.getAllUsers()
+	public loadAllUsers() {
+		this.userService.getAllUsers()
 		.subscribe({
 			next: (data: any) => {
 				this.listUsers = data;
@@ -52,11 +51,11 @@ export class UsersComponent implements OnInit {
 		})
 	}
 
-	public initEditForm() {
+	public initUpdateForm(user: User) {
 		this.updateUserForm = this.formBuilder.group({
-			firstname : [this.user.firstname, Validators.required],
-			lastname  : [this.user.lastname, Validators.required],
-			address   : [this.user.address, Validators.required]
+			firstname : [user.getFirstName()],
+			lastname  : [user.getLastName()],
+			address   : [user.getAddress()]
 		})
 	}
 
@@ -76,42 +75,46 @@ export class UsersComponent implements OnInit {
 					console.log(error);
 				}
 			});
-		window.location.reload();
+			// window.location.reload();
+			this.loadAllUsers();
+			this.ngOnInit();
 	}
 
-	public async onUpdateUser(id: Number) {
-		await this.userService.getUserById(id)
+	public onUpdateUser(id: Number) {
+		this.updatedId = id;
+		this.userService.getUserById(id)
 		.subscribe({
-			next: (data: any) => {
-				this.user = data;
-				console.log(this.user.firstname);
-				sessionStorage.setItem('firstNameSession', this.user.firstname+"");
-				sessionStorage.setItem('lastNameSession', this.user.lastname+"");
-				sessionStorage.setItem('addressSession', this.user.address+"");
-				this.initEditForm();
-				// console.log(this.user);
+			next: (data: User[]) => {
+				this.user.setFirstName(data[0].firstname);
+				this.user.setLastName(data[0].lastname);
+				this.user.setAddress(data[0].address);
+
+				this.initUpdateForm(this.user);
 			},
 			error: (error) => {
 				console.log(error);
 			}
 		});
-		console.log(sessionStorage.getItem('firstNameSession'));
 	}
 
 	public onSubmitUpdate() {
 		if (this.updateUserForm) {
 			this.updatedUser.firstname = this.updateUserForm.get('firstname')?.value;
-			this.updatedUser.firstname = this.updateUserForm.get('lastname')?.value;
-			this.updatedUser.firstname = this.updateUserForm.get('address')?.value;
+			this.updatedUser.lastname = this.updateUserForm.get('lastname')?.value;
+			this.updatedUser.address = this.updateUserForm.get('address')?.value;
 		}
 
+		console.log(this.updateUserForm);
 		if (this.updatedId) {
 			this.userService.updateUser(this.updatedId, this.updatedUser)
-				.subscribe(
-					(data: User) => {
-						this.ngOnInit();
+				.subscribe({
+					next: (data: User) => {
+						console.log("Modification réussie" + data);
+					},
+					error: (error) => {
+						console.log(error);
 					}
-				)
+				});
 		}
 		window.location.reload();
 	}
@@ -120,7 +123,9 @@ export class UsersComponent implements OnInit {
 		if(window.confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
 			this.userService.removeUser(id)
 				.subscribe(data => this.ngOnInit())
-			window.location.reload();
+			// window.location.reload();
+			this.loadAllUsers();
+			this.ngOnInit();
 		}
 	}
 

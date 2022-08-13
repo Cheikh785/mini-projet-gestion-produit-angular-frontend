@@ -73,22 +73,22 @@ export class ProductsComponent implements OnInit {
 			.subscribe({
 				next: (data: Product) => {
 					console.log("Produit ajouté avec succès");
-					window.location.reload();
 				},
 				error: (error) => {
 					console.log(error);
 				}
 			});
+		window.location.reload();
 	}
 
 	public onSubmitUpdate() {
-		let name		=	this.updateProductForm.get('name')?.value;
+		let name		= this.updateProductForm.get('name')?.value;
 		let price		=	this.updateProductForm.get('price')?.value;
 		let quantity	=	this.updateProductForm.get('quantity')?.value;
 		// this.imagePath	 	=	'../../assets/images/Products_images/image_template.png';
 
 		let product = new Product(name, price, quantity, this.image);
-		console.log(product);
+		// console.log(this.product);
 
 		if (this.idProduct) {
 			this.productService.updateProduct(this.idProduct, product)

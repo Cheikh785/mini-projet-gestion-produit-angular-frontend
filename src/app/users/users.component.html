@@ -60,7 +60,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [routerLink]="['/users']">Enregistrer</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Enregistrer</button>
                     </div>
                 </form>
             </div>
@@ -75,7 +75,7 @@
                     <h3 class="modal-title" id="editUserModalLabel">Modifier un utilisateur</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form [formGroup]="updateUserForm" (ngSubmit)="onSubmitUpdate()">
+                <form *ngIf="updateUserForm" [formGroup]="updateUserForm" (ngSubmit)="onSubmitUpdate()">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="prenom" class="col-form-label">Prénom(s)</label>

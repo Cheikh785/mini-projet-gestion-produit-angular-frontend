@@ -16,19 +16,19 @@ export class UsersService {
 		return this.http.get<User[]>(this.apiUrl);
 	}
 
-	public getUserById(id: Number): Observable<User> {
-		return this.http.get<User>(this.apiUrl + id);
+	public getUserById(id: Number): Observable<User[]> {
+		return this.http.get<User[]>(this.apiUrl + id);
 	}
 
 	public registerUser(user: User): Observable<User> {
 		return this.http.post<User>(this.apiUrl, user);
 	}
 
-	public updateUser(id: Number, user: User): Observable<User> {
+	updateUser(id: Number, user: User): Observable<User> {
 		return this.http.patch<User>(this.apiUrl + id, user);
 	}
 
-	public removeUser(id: Number) {
+	removeUser(id: Number) {
 		return this.http.delete<User>(this.apiUrl + id);
 	}
 
