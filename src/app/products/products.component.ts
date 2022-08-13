@@ -14,10 +14,9 @@ export class ProductsComponent implements OnInit {
 	listProducts		: 	any 		= [];
 	addProductForm		!: 	FormGroup;
 	updateProductForm	!: 	FormGroup;
-	product				 :	Product			= new Product();
+	product				 :	Product		= new Product();
 	idProduct			?:	Number;
-	// imagePath			:	String			= new String("");
-	imagePath				: 	any;
+	image				 : 	String		= "../../assets/images/Products_images/image_template.png"
 	url					?: 	string 		= '';
 	msg					: 	any 		= '';
 
@@ -66,30 +65,29 @@ export class ProductsComponent implements OnInit {
 		let name 		=	this.addProductForm.get('name')?.value;
 		let price		=	this.addProductForm.get('price')?.value;
 		let quantity	=	this.addProductForm.get('quantity')?.value;
-		this.imagePath	 =	"../../assets/images/Products_images/image_template.png";
-		let product = new Product(name, price, quantity, this.imagePath);
-		// console.log(product);
+		// this.imagePath	 =	"../../assets/images/Products_images/image_template.png";
+		let product = new Product(name, price, quantity, this.image);
+		console.log(product);
 		
 		this.productService.registerProduct(product)
 			.subscribe({
 				next: (data: Product) => {
 					console.log("Produit ajouté avec succès");
+					window.location.reload();
 				},
 				error: (error) => {
 					console.log(error);
 				}
 			});
-		// window.location.reload();
-		// console.log(this.imagePath);
 	}
 
 	public onSubmitUpdate() {
 		let name		=	this.updateProductForm.get('name')?.value;
 		let price		=	this.updateProductForm.get('price')?.value;
 		let quantity	=	this.updateProductForm.get('quantity')?.value;
-		this.imagePath	 	=	'../../assets/images/Products_images/image_template.png';
+		// this.imagePath	 	=	'../../assets/images/Products_images/image_template.png';
 
-		let product = new Product(name, price, quantity, this.imagePath);
+		let product = new Product(name, price, quantity, this.image);
 		console.log(product);
 
 		if (this.idProduct) {
