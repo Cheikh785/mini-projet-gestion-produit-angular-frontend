@@ -49,7 +49,7 @@ export class ProductsComponent implements OnInit {
 			name	 :	['', Validators.required],
 			price 	 :	['', Validators.required],
 			quantity : 	['', Validators.required],
-			Image	 :	['']
+			image	 :	['']
 		});
 	}
 	
@@ -57,7 +57,8 @@ export class ProductsComponent implements OnInit {
 		this.updateProductForm = this.formBuilder.group({
 			name		:	[product.getName()],
 			price		: 	[product.getPrice()],
-			quantity	: 	[product.getQuantity()]
+			quantity	: 	[product.getQuantity()],
+			image		:	['']
 		});
 	}
 
@@ -88,18 +89,20 @@ export class ProductsComponent implements OnInit {
 		// this.imagePath	 	=	'../../assets/images/Products_images/image_template.png';
 
 		let product = new Product(name, price, quantity, this.image);
-		// console.log(this.product);
+		console.log(product);
 
 		if (this.idProduct) {
 			this.productService.updateProduct(this.idProduct, product)
 				.subscribe({
 					next: (data: Product) => {
 						console.log("Modification réussie" + data);
+						this.ngOnInit();
 					},
 					error: (error) => {
 						console.log(error);
 					}
 				});
+			// window.location.reload();
 		}
 	}
 

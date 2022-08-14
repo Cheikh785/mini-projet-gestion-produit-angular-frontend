@@ -57,10 +57,12 @@ body {
     display: flex;
     justify-content: end;
     padding-top: 1%;
+    margin-left: 3%;
 }
 .rechercher {
     padding-right: 2%;
     padding-top: 1%;
+    margin-left: -3%;
 }
 .input-group {
     display: flex;
