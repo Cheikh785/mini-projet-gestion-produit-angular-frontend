@@ -1,27 +1,40 @@
 # MiniProjectTeamxGroupFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+<p align="center">
+<!--   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" style="margin-left: -7%; margin-right: 8%;" style="margin-left: -7%; margin-right: 8%;"/></a> -->
+  <a href="https://github.com/Cheikh785/mini-project-teamx-group-backend/" target="blank"><img src="teamx.png" width="500" alt="TeamX group Logo"/></a>
+</p>
 
-## Development server
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Projet 2 : Conception d'une application web avec Angular
+Mise en place d'un serveur backend utilisant le framework NestJS (https://docs.nestjs.com/). On a utilisé MongoDB (https://www.mongodb.com/) comme base de données(BD). Le backend comporte deux modèles avec leurs contrôleurs et services :
 
-## Code scaffolding
+  - Un modèle **user** qui permet de gérer les utilisateurs
+  - Un modèle **product** qui permet de gérer les produits.
+  
+Le modèle **user** a les champs suivants : **_id**, **firstname**, **lastname**, **address**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Le modèle **produit** a les champs suivants : **_id**, **name**, **price**, **quantity**, **image**
 
-## Build
+## Résultats
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Product
 
-## Running unit tests
+![Accueil](src/assets/images/captures/product1.png) 
+![Accueil](src/assets/images/captures/product.png) 
+![Accueil](src/assets/images/captures/product1.png) 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### User
 
-## Running end-to-end tests
+![Accueil](src/assets/images/captures/user1.png) 
+![Accueil](src/assets/images/captures/user2.png) 
+![Accueil](src/assets/images/captures/user3.png) 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+-----------
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Project Status 
+      Complete 
+
