@@ -38,11 +38,3 @@ Le modèle **produit** a les champs suivants : **_id**, **name**, **price**, **q
 ## Project Status 
       Complete 
 
-#### AWS Networking
-
-<details>
-<summary>What is VPC?</summary><br><b>
-
-"A logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define"
-Read more about it [here](https://aws.amazon.com/vpc).
-</b></details>
