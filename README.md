@@ -1,4 +1,5 @@
-# MiniProjectTeamxGroupFrontend
+# MiniProjectAngularFrontend
+
 
 <!-- <p align="center">-->
 <!--   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" style="margin-left: -7%; margin-right: 8%;" style="margin-left: -7%; margin-right: 8%;"/></a> -->
